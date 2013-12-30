@@ -12,6 +12,7 @@ For further information about Collmex goto http://www.collmex.de.
 - [ ] Complete CRUD API for Collmex.
 - [ ] Configurable caching of responses to prevent surpassing rate limit.
 - [ ] Provide some derived KPIs.
+- [ ] Complete Documentation and examples.
 
 ## Installation
 
@@ -43,7 +44,7 @@ Define the following properties in your parameters.yml:
 
 ## Usage
 
-* Get reference to the Collmex service either by adding @twentysteps_collmex.service as a dependency in some other service or by  explicitely getting the service from the container during runtime e.g. by calling $this->get('twentysteps_collmex.service') in the action of a controller.
+* Get reference to the Collmex service either by adding @twentysteps_collmex.service as a dependency in your service or by  explicitely getting the service from the container during runtime e.g. by calling $this->get('twentysteps_collmex.service') in the action of your controller.
 * Call any public function provided by Services/CollmexService.php e.g. getCustomerCount() to get the number of customers listed in Collmex.
 
 ## Version
