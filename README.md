@@ -8,17 +8,22 @@ For further information about Collmex: http://www.collmex.de
 
 ## Features
 
-* Collmex accessible as a Symfony2 service.
-* Configurable caching of responses to prevent surpassing rate limit.
-* Provide some derived KPIs.
+- [x] Collmex accessible as a configurable Symfony2 service.
+- [ ] Complete CRUD API for Collmex.
+- [ ] Configurable caching of responses to prevent surpassing rate limit.
+- [ ] Provide some derived KPIs.
 
 ## Installation
 
 Register the bundle by adding the following line to the registerBundles() method of your AppKernel.php:  
+```
 new twentysteps\Bundle\CollmexBundle\twentystepsCollmexBundle()" to the registerBundles() method of your AppKernel.php
+```
 
 Register services provided by the bundle by adding the following line to the imports section of your config.yml:  
+```
 \- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" } to the imports section of your config.yml
+```
 
 Define the following properties in your parameters.yml:  
 * twentysteps_collmex.url - URL of the Collmex API - normally should point to "https://www.collmex.de".
