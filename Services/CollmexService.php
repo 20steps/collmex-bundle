@@ -5,7 +5,7 @@ namespace twentysteps\Workflow\WorkflowBundle\Services;
 /**
  * Class CollmexService
  *
- * This service fetches issues from Bugherd
+ * This service interacts with Collmex accounting (cp. http://www.collmex.de/)
  */
 class CollmexService  {
 
