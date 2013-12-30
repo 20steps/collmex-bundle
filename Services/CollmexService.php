@@ -33,6 +33,7 @@ class CollmexService  {
     }
 
     // generic call to Collmex API using "satz" (command and args)
+    // cp. http://www.collmex.de/cgi-bin/cgi.exe?1005,1,help,api_ueberblick
     public function call($satz) {
         $this->logger->info('making call');
         $call="https://www.collmex.de/cgi-bin/cgi.exe?".$this->accountId.",0,data_exchange,";
