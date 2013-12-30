@@ -18,7 +18,7 @@ Register the bundle by adding the following line to the registerBundles() method
 new twentysteps\Bundle\twentystepsCollmexBundle()" to the registerBundles() method of your AppKernel.php
 
 Register services provided by the bundle by adding the following line to the imports section of your config.yml:  
-- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" } to the imports section of your config.yml
+\- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" } to the imports section of your config.yml
 
 Define the following properties in your parameters.yml:  
 * twentysteps_collmex.url
