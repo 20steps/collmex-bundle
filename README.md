@@ -17,12 +17,12 @@ For further information about Collmex: http://www.collmex.de
 
 Register the bundle by adding the following line to the registerBundles() method of your AppKernel.php:  
 ```
-new twentysteps\Bundle\CollmexBundle\twentystepsCollmexBundle()" to the registerBundles() method of your AppKernel.php
+new twentysteps\Bundle\CollmexBundle\twentystepsCollmexBundle()
 ```
 
 Register services provided by the bundle by adding the following line to the imports section of your config.yml:  
 ```
-\- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" } to the imports section of your config.yml
+\- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" }
 ```
 
 Define the following properties in your parameters.yml:  
