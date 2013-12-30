@@ -1,6 +1,6 @@
 <?php
 
-namespace twentysteps\Workflow\WorkflowBundle\Services;
+namespace twentysteps\Bundle\CollmexBundle\Services;
 
 /**
  * Class CollmexService
