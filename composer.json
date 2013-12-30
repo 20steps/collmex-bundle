@@ -2,7 +2,7 @@
     "name": "20steps/collmex-bundle",
     "type": "symfony-bundle",
     "description": "Service-oriented Collmex API for Symfony2 applications",
-    "keywords": ["collmex","api","sf2"],
+    "keywords": ["collmex","api","soa","sf2","accounting"],
     "homepage": "https://github.com/20steps/collmex-bundle",
     "license": "LGPL-3.0+",
     "authors": [
