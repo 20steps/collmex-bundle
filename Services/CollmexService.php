@@ -108,6 +108,10 @@ class CollmexService  {
         return null;
     }
 
+    public function getCustomerCount() {
+    	return count($this->getCustomers());
+    }
+
     public function processInvoiceRow($row) {
         $invoice=null;
         if ($row[0]=='CMXINV') {
@@ -137,6 +141,10 @@ class CollmexService  {
         return $invoices;
     }
 
+    public function getInvoiceCount() {
+    	return count($this->getInvoices());
+    }
+
     public function processOrderRow($row) {
         $order=null;
         if ($row[0]=='CMXORD-2') {
@@ -164,6 +172,10 @@ class CollmexService  {
         return $orders;
     }
 
+    public function getOrderCount() {
+    	return count($this->getOrders(array('cusomer_id' => '')));
+    }
+
     public function processProductRow($row) {
         $product=null;
         if ($row[0]=='CMXPRD') {
@@ -175,10 +187,19 @@ class CollmexService  {
         return $product;
     }
     
+    public function getProducts($config) {
+        $rows=$this->call('PRODUCT_GET;1');
+        $products=array();
+        foreach ($rows as $row) {
+            $product=$this->processProductRow($row);
+            $products[$product['id']]=$product;
+        }
+        return $products;
+    }
+
     public function getProduct($config) {
 
-        $call='PRODUCT_GET;1;'.$config['product_id'];
-        $rows=$this->call($call);
+        $rows=$this->call('PRODUCT_GET;1;'.$config['product_id']);
         foreach ($rows as $row) {
             $product=$this->processProductRow($row);
             if ($product) {
@@ -188,9 +209,11 @@ class CollmexService  {
         return null;
     }
 
-    public function getCustomerCount() {
-    	return count($this->getCustomers());
+    public function getProductCount() {
+    	return count($this->getProducts());
     }
+
+    
 
 
  }
