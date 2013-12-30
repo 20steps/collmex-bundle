@@ -192,4 +192,5 @@ class CollmexService  {
     	return count($this->getCustomers());
     }
 
+
  }

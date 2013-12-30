@@ -1,6 +1,4 @@
-Service-oriented Collmex API for Symfony2 applications
-
-# twentystepsCollmexBundle
+# 20steps/collmex-bundle (twentystepsCollmexBundle)
 
 ## About
 
@@ -11,6 +9,7 @@ For further information about Collmex: http://www.collmex.de
 ## Features
 
 * Collmex accessible as a Symfony2 service.
+* Configurable caching of responses to prevent surpassing rate limit.
 * Provide some derived KPIs.
 
 ## Installation
