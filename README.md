@@ -4,7 +4,7 @@
 
 The 20steps Collmex Bundle provides a Service-oriented API for Symfony2 applications that need to interact with the Collmex accounting service.
 
-For further information about Collmex: http://www.collmex.de
+For further information about Collmex goto http://www.collmex.de.
 
 ## Features
 
