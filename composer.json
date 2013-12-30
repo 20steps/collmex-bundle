@@ -9,12 +9,14 @@
         {
             "name": "Helmut Hoffer von Ankershoffen",
             "email": "helmuthva@20steps.de",
-	    "homepage": "http://20steps.de"
+            "homepage": "http://20steps.de"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-    	"symfony/framework-bundle": "~2.3"
+    	"symfony/framework-bundle": "~2.3",
+        "misd/guzzle-bundle": "~1.0",
+        "liip/cache-control-bundle": "1.0.x"
     },
     "autoload": {
         "psr-0": { "twentysteps\\Bundle\\CollmexBundle": "" }
