@@ -36,6 +36,7 @@ class CollmexService  {
     // cp. http://www.collmex.de/cgi-bin/cgi.exe?1005,1,help,api_ueberblick
     public function call($satz) {
         $this->logger->info('making call');
+        // do not remove the ',' in the end - have to trick guzzle into not adding a = after exchange ...
         $call="https://www.collmex.de/cgi-bin/cgi.exe?".$this->accountId.",0,data_exchange,";
         $request = $this->client->post($call);
         $request->getQuery()->useUrlEncoding(false);
