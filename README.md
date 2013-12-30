@@ -12,7 +12,7 @@ For further information about Collmex goto http://www.collmex.de.
 - [ ] Complete CRUD API for Collmex.
 - [ ] Configurable caching of responses to prevent surpassing rate limit.
 - [ ] Provide some derived KPIs.
-- [ ] Complete Documentation and examples.
+- [ ] Full documentation and some examples.
 
 ## Installation
 
