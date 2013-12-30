@@ -1,4 +1,4 @@
-Symfony2/Service oriented API for Collmex accounting service
+Service-oriented Collmex API for Symfony2 applications
 
 # twentystepsCollmexBundle
 
