@@ -30,3 +30,7 @@ Define the following properties in your parameters.yml:
 ## Version
 
 This version is not yet complete or usable.
+
+## Author
+
+Helmut Hoffer von Ankershoffen (hhva@20steps.de).
