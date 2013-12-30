@@ -17,41 +17,30 @@ class CollmexService  {
     private $login;
     private $password;
 
+    // inject some services, cp. services.yml
 	public function __construct($logger,$entityManager,$cache,$client,$accountId,$login,$password)
     {
         $this->logger=$logger;
         $this->entityManager=$entityManager;
         $this->cache=$cache;
+
         $this->client=$client;
+        $this->client->setSslVerification(true,false,2);
+
         $this->accountId=$accountId;
         $this->login=$login;
         $this->password=$password;
     }
 
+    // generic call to Collmex API using "satz" (command and args)
     public function call($satz) {
         $this->logger->info('making call');
-        $call="https://www.collmex.de/cgi-bin/cgi.exe?".$this->accountId.",0,data_exchange";
-        $request = $this->client->post($call,
-            array(), 
-            'LOGIN;'.$this->login.';'.$this->password.'\n\n'
-        );
-        //$request->addPostFields(array('LOGIN;'.$this->login.';'.$this->password.'\nCUSTOMER_GET;;1\n'));
-        /*$request->getQuery()->useUrlEncoding(false);
-        $request->setHeader('Content-Type', 'text/csv');
-        $request->getCurlOptions()->set(CURLOPT_SSL_VERIFYHOST, false);
-        $request->getCurlOptions()->set(CURLOPT_RETURNTRANSFER, 1);
-        $customers=$request->send()->getBody(true);
-        $this->logger->info("Customers: ".var_export($customers,true));*/
+        $call="https://www.collmex.de/cgi-bin/cgi.exe?".$this->accountId.",0,data_exchange,";
+        $request = $this->client->post($call);
+        $request->getQuery()->useUrlEncoding(false);
+        $request->setBody("LOGIN;".$this->login.";".$this->password."\n".$satz."\n","text/csv");
+        $csv=$request->send()->getBody(true);
 
-        $ch = cURL_init($call);
-        cURL_setopt($ch, CURLOPT_POST, 1); 
-        cURL_setopt($ch, CURLOPT_POSTFIELDS, "LOGIN;".$this->login.";".$this->password."\n".$satz."\n");
-        cURL_setopt($ch, CURLOPT_HTTPHEADER, Array("Content-Type: text/csv")); 
-        cURL_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        cURL_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $csv = curl_exec($ch);
-        echo cURL_error($ch);
-        cURL_close($ch);
         $rows=array();
         foreach (explode("\n",$csv) as $line) {
             $rows[]=str_getcsv(mb_convert_encoding($line,'utf-8'),';');
@@ -98,7 +87,7 @@ class CollmexService  {
         foreach ($rows as $row) {
             $customer=$this->processCustomerRow($row);
             if ($customer) {
-                $rows[$customer['id']]=$customer;
+                $customers[$customer['id']]=$customer;
             }
 
         }
@@ -198,7 +187,7 @@ class CollmexService  {
     }
 
     public function getCustomerCount() {
-    	return 1;
+    	return count($this->getCustomers());
     }
 
  }
