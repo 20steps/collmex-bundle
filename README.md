@@ -28,4 +28,4 @@ Define the following properties in your parameters.yml:
 
 ## Version
 
-This version is not yet ready for production!
+This version is not yet usable.
