@@ -1,0 +1,3 @@
+twentysteps_collmex_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: twentystepsCollmexBundle:Default:index }
