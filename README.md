@@ -22,7 +22,7 @@ new twentysteps\Bundle\CollmexBundle\twentystepsCollmexBundle()
 
 Register services provided by the bundle by adding the following line to the imports section of your config.yml:  
 ```
-\- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" }
+- { resource: "@twentystepsCollmexBundle/Resources/config/services.yml" }
 ```
 
 Define the following properties in your parameters.yml:  
