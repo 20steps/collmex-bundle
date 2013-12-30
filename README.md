@@ -26,6 +26,11 @@ Define the following properties in your parameters.yml:
 * twentysteps_collmex.login - The login to use for accessing Collmex. You should create a service account to not interfere with the sessions of your accountants.
 * twentysteps_collmex.password - Password of the account.
 
+## Usage
+
+* Get reference to the Collmex service either by adding @twentysteps_collmex.service as a dependency in some other service or by  explicitely getting the service from the container during runtime e.g. by calling $this->get('twentysteps_collmex.service') in the action of a controller.
+* Call any public function provided by Services/CollmexService.php e.g. getCustomerCount() to get the number of customers listed in Collmex.
+
 ## Version
 
 This version is not yet complete or usable.

@@ -34,7 +34,7 @@ class CollmexService  {
 
     // generic call to Collmex API using "satz" (command and args)
     // cp. http://www.collmex.de/cgi-bin/cgi.exe?1005,1,help,api_ueberblick
-    public function call($satz) {
+    protected function call($satz) {
         $this->logger->info('making call');
         // do not remove the ',' in the end - have to trick guzzle into not adding a = after exchange ...
         $call="https://www.collmex.de/cgi-bin/cgi.exe?".$this->accountId.",0,data_exchange,";
@@ -50,7 +50,7 @@ class CollmexService  {
         return $rows;
     }
 
-    public function processCustomerRow($row) {
+    protected function processCustomerRow($row) {
         $customer=null;
         if ($row[0]=='CMXKND') {
             $customer=array(
