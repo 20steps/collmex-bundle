@@ -15,7 +15,7 @@ For further information about Collmex goto http://www.collmex.de.
 
 ## Installation
 
-Require the bundle by adding the following entry to the section of your composer.json:
+Require the bundle by adding the following entry to the respective section of your composer.json:
 ```
 "20steps/collmex-bundle": "dev-master"
 ```
