@@ -15,7 +15,17 @@ For further information about Collmex goto http://www.collmex.de.
 
 ## Installation
 
-Register the bundle by adding the following line to the registerBundles() method of your AppKernel.php:  
+Require the bundle by adding the following entry to the section of your composer.json:
+```
+"20steps/collmex-bundle": "dev-master"
+```
+
+Get the bundle via packagist from GitHub by calling:
+```
+php composer.phar update 20steps/collmex-bundle
+```
+
+Register the bundle in your application by adding the following line to the registerBundles() method of your AppKernel.php:  
 ```
 new twentysteps\Bundle\CollmexBundle\twentystepsCollmexBundle()
 ```
