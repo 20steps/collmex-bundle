@@ -197,4 +197,8 @@ class CollmexService  {
         return null;
     }
 
+    public function getCustomerCount() {
+    	return 1;
+    }
+
  }

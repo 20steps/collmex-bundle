@@ -2,6 +2,18 @@ parameters:
 #    twentysteps_collmex.example.class: twentysteps\Bundle\CollmexBundle\Example
 
 services:
+
+	twentysteps_collmex.service:
+        class: twentysteps\Bundle\CollmexBundle\Services\CollmexService
+        arguments: [@logger, @doctrine.orm.entity_manager, @liip_doctrine_cache.ns.workflow, @twentysteps_collmex.client, %twentysteps_collmex.account_id%, %twentysteps_collmex.login%, %twentysteps_collmex.password%]
+
+    twentysteps_collmex.client: 
+        class: %guzzle.client.class%
+        arguments: [ %twentysteps_collmex.url% ]
+        tags:
+            - { name: guzzle.client }
+
+
 #    twentysteps_collmex.example:
 #        class: %twentysteps_collmex.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
