@@ -129,7 +129,13 @@ class CollmexService  {
         return $invoice;
     }
 
-    public function getInvoices($config) {
+    public function getInvoices($config=array()) {
+    	if (!is_array($config)) {
+    		return null;
+    	}
+    	if (!array_key_exists('customer_id',$config)) {
+    		$config['customer_id']='';
+    	}
         $rows=$this->call('INVOICE_GET;;;'.$config['customer_id'].';1');
         $invoices=array();
         foreach ($rows as $row) {
@@ -157,7 +163,13 @@ class CollmexService  {
         return $order;
     }
     
-    public function getOrders($config) {
+    public function getOrders($config=array()) {
+    	if (!is_array($config)) {
+    		return null;
+    	}
+    	if (!array_key_exists('customer_id',$config)) {
+    		$config['customer_id']='';
+    	}
         $rows=$this->call('SALES_ORDER_GET;;;'.$config['customer_id'].';1');
         $orders=array();
         foreach ($rows as $row) {
@@ -173,7 +185,7 @@ class CollmexService  {
     }
 
     public function getOrderCount() {
-    	return count($this->getOrders(array('cusomer_id' => '')));
+    	return count($this->getOrders());
     }
 
     public function processProductRow($row) {
@@ -186,8 +198,28 @@ class CollmexService  {
         }
         return $product;
     }
+
+    public function getKPIs() {
+    	return array(
+    		'customers' => array(
+    			'count' => $this->getCustomerCount()
+    		),
+    		'orders' => array(
+    			'count' => $this->getOrderCount()
+    		),
+    		'invoices' => array(
+    			'count' => $this->getInvoiceCount()
+    		),
+    		'products' => array(
+    			'count' => $this->getProductCount()
+    		)
+    	);
+    }
     
     public function getProducts($config) {
+    	if (!is_array($config)) {
+    		return null;
+    	}
         $rows=$this->call('PRODUCT_GET;1');
         $products=array();
         foreach ($rows as $row) {
@@ -210,7 +242,7 @@ class CollmexService  {
     }
 
     public function getProductCount() {
-    	return count($this->getProducts());
+    	return count($this->getProducts(array()));
     }
 
     
