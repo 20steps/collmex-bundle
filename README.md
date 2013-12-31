@@ -13,6 +13,7 @@ For further information about Collmex goto http://www.collmex.de.
 - [ ] Configurable caching of responses to prevent surpassing rate limit.
 - [ ] Provide some derived KPIs.
 - [ ] Full documentation and some examples.
+- [ ] Prepare for open sourcing of 20steps control.
 
 ## Installation
 
