@@ -16,7 +16,7 @@
     "require": {
     	"symfony/framework-bundle": "~2.3",
         "misd/guzzle-bundle": "~1.0",
-        "liip/cache-control-bundle": "1.0.x"
+        "liip/doctrine-cache-bundle": "dev-master"
     },
     "autoload": {
         "psr-0": { "twentysteps\\Bundle\\CollmexBundle": "" }
