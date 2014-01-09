@@ -122,8 +122,13 @@ class CollmexService  {
                 'order_id' => $row['5'],
                 'customer_id' => $row['6'],
                 'company' => $row['7'],
+                'deleted' => $row['41'],
+                'status' => $row['46'],
                 'invoice_date' => $row['29'],
-                'price' => $row['73'],
+                'unit_quantity' => $row['72'],
+                'unit_price' => $row['73'],
+                'unit_discount' => $row['74'],
+                'revenue' => $row['83']
             );                
         }
         return $invoice;
