@@ -43,10 +43,18 @@ class CollmexService  {
         $request->setBody("LOGIN;".$this->login.";".$this->password."\n".$satz."\n","text/csv");
         $csv=$request->send()->getBody(true);
 
+        // //generating temp file to use fopen and fgetcsv
+        $temp_file_path = tempnam(sys_get_temp_dir(), 'cmx');
+        file_put_contents($temp_file_path, $csv);
+        $handle = fopen($temp_file_path,'r');
+    
         $rows=array();
-        foreach (explode("\n",$csv) as $line) {
-            $rows[]=str_getcsv(mb_convert_encoding($line,'utf-8'),';');
+
+        while ( ($row = fgetcsv($handle,0,";") ) !== FALSE ) {
+            $rows[]=$row;
         }
+        fclose($handle);
+        unlink($temp_file_path);
         return $rows;
     }
 
